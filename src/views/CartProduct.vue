@@ -8,6 +8,7 @@ import BlockCart from "@/components/BlockCart.vue";
     </div>
     <BlockCart />
   </div>
+  
 </template>
 
 <style></style>
