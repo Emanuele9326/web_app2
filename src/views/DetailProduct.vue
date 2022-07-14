@@ -12,36 +12,22 @@ detailproduct.productDetails(id);
 const detail = detailproduct.detailproduct;
 console.log(detail);
 
-//add_to_cart
-const cart = detailproduct.cart_product;
-console.log(cart);
-function addToCart() {
-  cart.foreach(element => {
-    if (element.id == detail.id) {
-      element.quantity = element.quantity++;
-      
-    }else{
-      let quantity=1;
-      const add_product = {
-        id: detail.id,
-        name: detail.name,
-        img: detail.image,
-        price: detail.price,
-        quantity: quantity,
-      };
-      cart.push(add_product);
-    }
-  });
-  
+//add_to_cart eliminare
+const cartProduct = detailproduct.cartProduct;
+console.log(cartProduct);
 
-  
-}
-
-console.log(cart);
 </script>
 <template>
   <div class="container">
-    <div><router-link to="/">Indietro</router-link></div>
+    <header class="detheader">
+    <span ><router-link to="/" style="width:50px; heigth:50px"><img  src="../assets/icon/arrow-left.svg"></router-link></span>
+    <span style="margin-left:200px"><router-link to="/cartProduct" style="padding:20px;"><img src="../assets/icon/cart.svg"/></router-link>
+    <img src="../assets/icon/search.svg"  style="padding:20px;"></span>
+    </header>
+    
+    
+    
+    
     <div class="card">
       <img
         :src="detail.image"
@@ -54,8 +40,9 @@ console.log(cart);
         <p class="card-text">
           {{ detail.description }}
         </p>
-        <button type="button" class="btn btn-light" @click="addToCart()">
-          <svg
+        <button type="button" class="btn btn-light" @click="detailproduct.addToCart(id)">
+        <h5>Aggiungi al Carrello</h5>
+          <!--<svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
             height="16"
@@ -66,9 +53,16 @@ console.log(cart);
             <path
               d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
             />
-          </svg>
+          </svg>-->
         </button>
       </div>
     </div>
   </div>
 </template>
+<style>
+.detheader{
+  z-index: 999999;
+  position: absolute;
+}
+
+</style>
