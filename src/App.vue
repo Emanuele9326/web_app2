@@ -1,6 +1,7 @@
 <script setup>
 import { RouterView } from 'vue-router'
 
+
 </script>
 
 <template>
@@ -12,17 +13,18 @@ import { RouterView } from 'vue-router'
 @import '@/assets/base.css';
 
 #app {
-  
+  background-color: #fff;
+  color:#7a3620;
 }
 
 
   
 
-
-a,
-.green {
-  
+a{
+  color:#7a3620;
+  text-decoration: none;
 }
+
 
 @media (hover: hover) {
   a:hover {
