@@ -20,13 +20,15 @@ function openSearch() {
     <full-screen_-search />
     <div class="nav_bar">
       <div class="row">
-        <div class="col">
-          <router-link to="/" style="width: 50px; heigth: 50px"
-            ><img src="../assets/icon/arrow-left.svg"
-          /></router-link>
+        <div class="col arrow">
+          <div style="margin-top: 0.5rem">
+            <router-link to="/" style="width: 100%; height: 100%"
+              ><img class="nav_icon" src="../assets/icon/arrow-left-square.svg"
+            /></router-link>
+          </div>
         </div>
 
-        <div class="col">
+        <div class="col search_basket">
           <div style="margin-top: 0.5rem; text-align: end">
             <span span="icon_basket">
               <router-link to="/cartProduct" style="padding: 20px">
@@ -65,9 +67,15 @@ function openSearch() {
         <p class="card-text">
           {{ detail.description }}
         </p>
-        <button type="button" class="btn btn-light" @click="productStore.addToCart(id)">
-          <h5>Aggiungi al Carrello</h5>
-        </button>
+        <div class="d-grid gap-2 col-6 mx-auto">
+          <button
+            type="button"
+            class="btn addcart"
+            @click="productStore.addToCart(id)"
+          >
+            <h5>Aggiungi al Carrello</h5>
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -79,7 +87,7 @@ function openSearch() {
 .detailProduct .nav_bar {
   width: 100%;
   position: absolute;
-  z-index: 99999;
+  z-index: 500;
   margin: 0px !important;
   --bs-gutter-x: 0;
 }
@@ -89,6 +97,10 @@ function openSearch() {
 }
 .detailProduct .nav_bar .row .col {
   padding-left: 0px;
+}
+.arrow {
+  padding-left: 12px !important;
+  padding-right: 0px !important;
 }
 .icon_basket {
   padding-left: 0px;
@@ -101,8 +113,17 @@ function openSearch() {
 }
 
 .nav_icon {
-  margin: 0px;
-  width: 40px;
-  height: 40px;
+  margin: 5px;
+  width: 30px;
+  height: 30px;
+}
+.addcart {
+    color: #fff;
+    background-color: #DC633A;
+    border-color:#DC633A;
+    padding: 0.5em 0.5em;
+}
+.addcart h5{
+  margin: 0;
 }
 </style>
